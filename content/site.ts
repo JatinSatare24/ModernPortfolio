@@ -33,7 +33,7 @@ export const site = {
   },
 
   hero: {
-    greeting: "Hi, I'm Jatin,",
+    greeting: "Hi, I am Jatin,",
     headline: "a Full-Stack Engineer.",
     subline:
       "I build fast, reliable, production-ready web apps, from database to UI.",
@@ -45,7 +45,7 @@ export const site = {
   contact: {
     heading: "Let's build something reliable.",
     intro:
-      "Hiring for a Full-Stack or Frontend role, or have a project that needs an engineer who owns it end to end? Send me a message and I'll get back to you.",
+      "Hiring for a Full-Stack or Frontend role, or have a project that needs an engineer who owns it end to end? Send me a message and I will get back to you.",
     email: "jatinsatare@gmail.com",
     phoneDisplay: "+91 93728 63335",
     phoneHref: "tel:+919372863335",
@@ -56,7 +56,7 @@ export const site = {
 export const sections = {
   work: {
     eyebrow: "Selected work",
-    heading: "A selection of things I've built.",
+    heading: "A selection of things I have built.",
     moreHeading: "More projects",
   },
   experience: {
