@@ -86,11 +86,21 @@ export async function POST(req: Request) {
   if (rateLimited(ip))
     return json({ error: "Too many messages. Please try again in a few minutes." }, 429);
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  const to = process.env.CONTACT_TO_EMAIL?.trim();
+  const from = process.env.CONTACT_FROM_EMAIL?.trim() || "Portfolio <onboarding@resend.dev>";
   if (!apiKey || !to) {
     console.error("Contact form: RESEND_API_KEY or CONTACT_TO_EMAIL is not set.");
+    return json({ error: "The contact form isn't available right now." }, 503);
+  }
+
+  // A real Resend key is plain ASCII like "re_abc123". Anything else (for example
+  // masked bullets copied from a dashboard) can never work, so say so clearly.
+  if (!/^re_[A-Za-z0-9_]+$/.test(apiKey)) {
+    console.error(
+      `Contact form: RESEND_API_KEY is invalid (length ${apiKey.length}, starts with "${apiKey.slice(0, 3)}"). ` +
+        "It must look like re_xxxxxxxx. Re-copy it from the Resend 'Create API Key' dialog and redeploy.",
+    );
     return json({ error: "The contact form isn't available right now." }, 503);
   }
 
