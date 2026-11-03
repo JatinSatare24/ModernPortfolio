@@ -11,9 +11,11 @@ export const site = {
   role: "Full-Stack Engineer",
   location: "India",
 
-  // Your photo. To change it, replace public/images/avatar.jpg (square, at least 200 x 200 px).
+  // Your photo, shown in the hero. To change it, replace public/images/jatin-portrait.jpg
+  // (portrait or square, at least 800 px wide, ideally under 300 KB). If you use a new
+  // file name, update "src" below to match.
   avatar: {
-    src: "/images/avatar.jpg",
+    src: "/images/jatin-portrait.jpg",
     alt: "Portrait of Jatin Satare",
   },
 
@@ -36,7 +38,12 @@ export const site = {
     greeting: "Hi, I am Jatin,",
     headline: "a Full-Stack Engineer.",
     subline:
+      "I design, build and ship full-stack web apps with Next.js, TypeScript and Supabase, backed by four years of enterprise production reliability.",
+    // Shorter version used in the link-preview image (LinkedIn, WhatsApp, Slack)
+    shareLine:
       "I build fast, reliable, production-ready web apps, from database to UI.",
+    // Small card on the corner of your photo in the hero
+    photoBadge: { value: "4 years", label: "Production experience" },
     primaryCta: "View my work",
     secondaryCta: "Download resume",
     availability: "Open to full-time roles & freelance projects",
@@ -47,13 +54,12 @@ export const site = {
     intro:
       "Hiring for a Full-Stack or Frontend role, or have a project that needs an engineer who owns it end to end? Send me a message and I will get back to you.",
     email: "jatinsatare@gmail.com",
-    phoneDisplay: "+91 93728 63335",
-    phoneHref: "tel:+919372863335",
   },
 };
 
 // Section titles (small label + big heading) shown on the page.
 export const sections = {
+  // (The About section's own text lives in content/about.ts)
   work: {
     eyebrow: "Selected work",
     heading: "A selection of things I have built.",
@@ -77,6 +83,7 @@ export const sections = {
 export const socials: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/JatinSatare24" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/jatin-satare/" },
+  { label: "Instagram", href: "https://www.instagram.com/_jatin.exe/" },
 ];
 
 export const moreOnGithub = {
@@ -86,6 +93,7 @@ export const moreOnGithub = {
 
 // Navigation links (id must match the section id on the page).
 export const navItems = [
+  { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
