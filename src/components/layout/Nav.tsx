@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, m } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { navItems, site } from "@content/index";
@@ -61,14 +60,7 @@ export default function Nav() {
             href="#"
             onClick={go("top")}
             className="group flex items-center gap-2.5"
-            >
-            <Image
-            src={site.avatar.src}
-            alt=""
-            width={64}
-            height={64}
-            className="size-8 rounded-full border border-line-strong object-cover transition-colors group-hover:border-accent/60"
-          />
+          >
             <span className="font-display text-xl text-fg">
               {site.name}
             </span>
@@ -171,9 +163,6 @@ export default function Nav() {
                       }`}
                     >
                       {item.label}
-                      <span className="font-mono text-xs text-subtle">
-                        0{i + 1}
-                      </span>
                     </a>
                   </m.li>
                 ))}

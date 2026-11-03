@@ -6,7 +6,7 @@ import { ArrowRight } from "@/components/ui/Icons";
 type Status = "idle" | "sending" | "success" | "error";
 
 const field =
-  "w-full rounded-xl border border-line-strong bg-bg/60 px-4 py-3 text-[0.95rem] text-fg placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-accent/30";
+  "w-full rounded-xl border border-control bg-bg/60 px-4 py-3 text-[0.95rem] text-fg placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-accent/30";
 
 export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
   const id = useId();
@@ -70,7 +70,7 @@ export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }
   return (
     <form
       onSubmit={onSubmit}
-      className="space-y-5 rounded-3xl border border-line bg-surface p-6 sm:p-8"
+      className="space-y-5 rounded-3xl border border-line bg-surface p-6 shadow-card sm:p-8"
       noValidate={false}
     >
       <div>
@@ -132,12 +132,12 @@ export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-bg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-4px_var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
         >
           {status === "sending" ? "Sending…" : "Send message"}
           <ArrowRight />
         </button>
-        <p role="alert" aria-live="polite" className="text-sm text-red-400">
+        <p role="alert" aria-live="polite" className="text-sm text-red-700">
           {status === "error" && (
             <>
               {error}{" "}

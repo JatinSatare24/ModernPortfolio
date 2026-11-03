@@ -36,7 +36,7 @@ function Item({ c }: { c: Credential }) {
 function Row({ label, items }: { label: string; items: Credential[] }) {
   return (
     <div className="grid gap-2 py-6 lg:grid-cols-[11rem_1fr] lg:items-start">
-      <h3 className="px-4 pt-4 font-mono text-xs uppercase tracking-[0.18em] text-accent lg:px-0">
+      <h3 className="px-4 pt-4 font-mono text-xs uppercase tracking-[0.12em] text-accent lg:px-0">
         {label}
       </h3>
       <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -55,12 +55,11 @@ export default function Credentials() {
     <section id="education" className="section-rule py-14 sm:py-20 lg:py-24">
       <Container>
         <Reveal>
-          <p className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            <span className="text-subtle">04</span>
-            <span className="h-px w-8 bg-line-strong" />
+          <p className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.12em] text-accent">
+            <span aria-hidden className="h-px w-8 bg-accent/50" />
             {sections.education.eyebrow}
           </p>
-          <div className="divide-y divide-line rounded-2xl border border-line bg-surface/50 px-2 sm:px-6">
+          <div className="divide-y divide-line rounded-2xl border border-line bg-surface px-2 shadow-card sm:px-6">
             <Row label="Education" items={education} />
             <Row label="Certifications" items={certifications} />
           </div>

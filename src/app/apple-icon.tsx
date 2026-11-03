@@ -7,10 +7,10 @@ export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 export default async function AppleIcon() {
-  const serif = await readFile(
+  const bold = await readFile(
     join(
       process.cwd(),
-      "node_modules/@fontsource/newsreader/files/newsreader-latin-400-italic.woff",
+      "node_modules/@fontsource/inter/files/inter-latin-600-normal.woff",
     ),
   );
   return new ImageResponse(
@@ -22,11 +22,11 @@ export default async function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#08090b",
-          color: theme.accent,
-          fontSize: 130,
-          fontFamily: "Newsreader",
-          fontStyle: "italic",
+          background: theme.accent,
+          color: "#ffffff",
+          fontSize: 110,
+          fontFamily: "Inter",
+          fontWeight: 600,
         }}
       >
         J
@@ -34,7 +34,7 @@ export default async function AppleIcon() {
     ),
     {
       ...size,
-      fonts: [{ name: "Newsreader", data: serif, style: "italic", weight: 400 }],
+      fonts: [{ name: "Inter", data: bold, style: "normal", weight: 600 }],
     },
   );
 }

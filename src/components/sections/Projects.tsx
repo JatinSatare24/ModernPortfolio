@@ -11,10 +11,9 @@ export default function Projects() {
   const others = projects.filter((p) => !p.featured);
 
   return (
-    <section id="work" className="py-16 sm:py-24 lg:py-32">
+    <section id="work" className="section-rule py-16 sm:py-20 lg:py-24">
       <Container>
         <SectionHeading
-          index="01"
           eyebrow={sections.work.eyebrow}
           heading={sections.work.heading}
         />

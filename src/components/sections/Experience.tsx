@@ -5,12 +5,11 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-rule py-16 sm:py-24 lg:py-32">
+    <section id="experience" className="section-rule py-16 sm:py-20 lg:py-24">
       <Container>
         <div className="grid gap-2 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
-              index="02"
               eyebrow={sections.experience.eyebrow}
               heading={experienceIntro.heading}
             >
@@ -27,12 +26,12 @@ export default function Experience() {
                   aria-hidden
                   className={`absolute -left-[2.45rem] top-2 size-3 rounded-full border-2 sm:-left-[3.05rem] ${
                     i === 0
-                      ? "border-accent bg-accent shadow-[0_0_16px_var(--accent)]"
+                      ? "border-accent bg-accent shadow-[0_0_0_4px_color-mix(in_srgb,var(--accent)_18%,transparent)]"
                       : "border-line-strong bg-bg"
                   }`}
                 />
                 <Reveal>
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">
+                  <p className="font-mono text-xs uppercase tracking-[0.1em] text-subtle">
                     {job.period}
                   </p>
                   <h3 className="mt-2 font-display text-2xl text-fg sm:text-[1.9rem]">

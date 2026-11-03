@@ -2,19 +2,21 @@
 
 /* ---------------------------------------------------------------------------
    Design tokens. The accent color comes from content/theme.ts (set in
-   layout.tsx as --accent). Everything else is a fixed dark palette.
+   layout.tsx as --accent). Everything else is a fixed light palette.
    --------------------------------------------------------------------------- */
 :root {
-  --accent: #34d3c0;
+  --accent: #2563eb;
   --content-max: 72rem; /* page content width; set from content/theme.ts */
-  --bg: #08090b;
-  --surface: #0e1013;
-  --surface-2: #14171b;
-  --line: #1e2228;
-  --line-strong: #2b3037;
-  --fg: #e9ebee;
-  --muted: #9097a3;
-  --subtle: #7b828e;
+  /* Cool white and navy, matching the LinkedIn banner */
+  --bg: #f6f8fc;
+  --surface: #ffffff;
+  --surface-2: #eff3f9;
+  --line: #e1e7f0;
+  --line-strong: #c9d2e0;
+  --fg: #121826;
+  --muted: #475569;
+  --subtle: #5a6a82;
+  --control: #7d8ca3; /* borders of form fields (needs 3:1 contrast) */
 }
 
 @theme inline {
@@ -27,17 +29,24 @@
   --color-muted: var(--muted);
   --color-subtle: var(--subtle);
   --color-accent: var(--accent);
-  --color-accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --color-accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  /* Darker accent for small text sitting on a tinted background */
+  --color-accent-strong: color-mix(in srgb, var(--accent) 80%, #000);
+  --color-control: var(--control);
+
+  /* One soft, consistent card shadow */
+  --shadow-card:
+    0 1px 2px rgb(18 24 38 / 0.05), 0 8px 24px -12px rgb(18 24 38 / 0.12);
 
   --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
-  /* Small labels use the same clean sans (no monospace) for a calmer look */
+  /* One plain family everywhere: Inter. Labels and headings use it too. */
   --font-mono: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display-face), ui-serif, Georgia, serif;
+  --font-display: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   background: var(--bg);
-  color-scheme: dark;
+  color-scheme: light;
   scroll-padding-top: 5rem;
 }
 
@@ -52,6 +61,10 @@ html.lenis body {
   overflow: clip;
 }
 
+html {
+  font-size: 106.25%; /* 17px base: every rem-based size scales up ~6% */
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
@@ -59,12 +72,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "cv11", "ss03";
+}
+
+/* Headings and big numbers: same Inter, just a little bolder and tighter.
+   (Kept outside Tailwind's layers so it applies to every .font-display.) */
+.font-display {
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent) 35%, transparent);
-  color: #fff;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--fg);
 }
 
 :focus-visible {
@@ -73,12 +92,12 @@ body {
   border-radius: 6px;
 }
 
-/* Subtle film grain + top glow used behind the hero */
+/* Soft accent wash at the top of the hero */
 .bg-glow {
   background:
     radial-gradient(
       60% 50% at 50% 0%,
-      color-mix(in srgb, var(--accent) 14%, transparent),
+      color-mix(in srgb, var(--accent) 9%, transparent),
       transparent 70%
     ),
     var(--bg);
@@ -124,7 +143,7 @@ body {
   transition: opacity 0.4s ease;
   background: radial-gradient(
     420px circle at var(--mx, 50%) var(--my, 50%),
-    color-mix(in srgb, var(--accent) 11%, transparent),
+    color-mix(in srgb, var(--accent) 7%, transparent),
     transparent 60%
   );
 }
@@ -142,7 +161,7 @@ body {
   transition: opacity 0.4s ease;
   background: radial-gradient(
     320px circle at var(--mx, 50%) var(--my, 50%),
-    color-mix(in srgb, var(--accent) 55%, transparent),
+    color-mix(in srgb, var(--accent) 45%, transparent),
     transparent 65%
   );
   -webkit-mask:

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { display, sans } from "@/lib/fonts";
+import { sans } from "@/lib/fonts";
 import { site, socials, theme } from "@content/index";
 import MotionProvider from "@/components/motion/MotionProvider";
 import SmoothScroll from "@/components/layout/SmoothScroll";
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090b",
-  colorScheme: "dark",
+  themeColor: "#f6f8fc",
+  colorScheme: "light",
 };
 
 const jsonLd = {
@@ -64,7 +64,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sans.variable} ${display.variable}`}
+      className={sans.variable}
       style={
         {
           "--accent": theme.accent,

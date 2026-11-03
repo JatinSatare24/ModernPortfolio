@@ -9,11 +9,11 @@ export const contentType = "image/png";
 
 // Generated automatically from content/site.ts and content/theme.ts
 export default async function OpengraphImage() {
-  const [serif, sans] = await Promise.all([
+  const [bold, regular] = await Promise.all([
     readFile(
       join(
         process.cwd(),
-        "node_modules/@fontsource/newsreader/files/newsreader-latin-300-normal.woff",
+        "node_modules/@fontsource/inter/files/inter-latin-600-normal.woff",
       ),
     ),
     readFile(
@@ -34,10 +34,10 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: `radial-gradient(70% 90% at 15% 0%, ${theme.accent}33, #08090b 60%)`,
-          color: "#e9ebee",
+          background: `radial-gradient(70% 90% at 15% 0%, ${theme.accent}22, #f6f8fc 60%)`,
+          color: "#121826",
           fontFamily: "Inter",
-          border: "1px solid #1e2228",
+          border: "1px solid #e1e7f0",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -52,9 +52,10 @@ export default async function OpengraphImage() {
           <div
             style={{
               fontSize: 26,
-              letterSpacing: 6,
+              letterSpacing: 4,
               textTransform: "uppercase",
               color: theme.accent,
+              fontWeight: 600,
             }}
           >
             {site.role}
@@ -64,17 +65,16 @@ export default async function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
           <div
             style={{
-              fontFamily: "Newsreader",
-              fontSize: 156,
+              fontSize: 128,
               lineHeight: 1,
-              letterSpacing: -3,
-              fontWeight: 300,
+              letterSpacing: -4,
+              fontWeight: 600,
             }}
           >
             {site.name}
           </div>
-          <div style={{ fontSize: 36, lineHeight: 1.35, color: "#9097a3", maxWidth: 900 }}>
-            {site.hero.subline}
+          <div style={{ fontSize: 36, lineHeight: 1.35, color: "#475569", maxWidth: 900 }}>
+            {site.hero.shareLine}
           </div>
         </div>
 
@@ -83,7 +83,7 @@ export default async function OpengraphImage() {
             display: "flex",
             justifyContent: "space-between",
             fontSize: 26,
-            color: "#7b828e",
+            color: "#5a6a82",
           }}
         >
           <div>{site.url.replace(/^https?:\/\//, "")}</div>
@@ -94,8 +94,8 @@ export default async function OpengraphImage() {
     {
       ...size,
       fonts: [
-        { name: "Newsreader", data: serif, style: "normal", weight: 300 },
-        { name: "Inter", data: sans, style: "normal", weight: 400 },
+        { name: "Inter", data: bold, style: "normal", weight: 600 },
+        { name: "Inter", data: regular, style: "normal", weight: 400 },
       ],
     },
   );
