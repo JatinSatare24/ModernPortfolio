@@ -15,7 +15,8 @@ You should never need to open anything inside the `src` folder.
 
 | File | What it controls |
 | --- | --- |
-| `content/site.ts` | name, email, phone, social links, hero text, section titles, resume file name |
+| `content/site.ts` | name, email, social links, hero text, section titles, resume file name |
+| `content/about.ts` | the About section: heading, paragraphs and the four number cards |
 | `content/projects.ts` | all projects |
 | `content/experience.ts` | the experience timeline |
 | `content/skills.ts` | skill groups |
@@ -79,7 +80,7 @@ Open `content/projects.ts`. Find the last project block. Right after its closing
 - A project **without** `featured: true` shows up in a **"More projects"** grid. That section stays hidden until you add one.
 - To make a project a big featured card instead, add the line `featured: true,` under `kind`. (Resin Kalaakari already has it.)
 - Cards show the **first** link as the main button and the rest as small links.
-- Leave `images: [],` empty if you have no screenshot yet. The card will still look fine.
+- Leave `images: [],` empty if you have no screenshot yet, and `links: [],` empty if you have no link yet. The card will still look fine and the buttons simply don't appear.
 - The "More on GitHub" button is always shown. Its link lives in `content/site.ts` under `moreOnGithub`.
 
 ---
@@ -117,6 +118,8 @@ The bold heading and the paragraph next to the timeline ("From keeping systems a
 
 To add a whole new group, copy one `{ ... },` block, paste it below, and change the title and items.
 
+Many tools show a small colored logo next to the name (React, Next.js, Docker and so on). Skills without a logo, such as "RAG" or "REST APIs", show as plain text. The logos live in `src/components/ui/techIcons.ts`; to give a new tool a logo, add its icon there (shapes from simpleicons.org) and map the skill name to it.
+
 **A certification.** Open `content/education.ts`. In the `certifications` list, paste:
 
 ```ts
@@ -149,16 +152,16 @@ If you'd like a different file name, put the new file in `public/resume` and cha
 
 Open `content/site.ts`.
 
-- **Email and phone:** find the `contact:` block.
+- **Email:** find the `contact:` block.
 
 ```ts
     email: "jatinsatare@gmail.com",
-    phoneDisplay: "+91 93728 63335",   // how it looks on the page
-    phoneHref: "tel:+919372863335",    // what happens on tap (no spaces!)
 ```
 
+- **Hero lines:** under `hero:`, `subline` is the text below your headline on the page, and `shareLine` is a shorter version used only in the link-preview image (LinkedIn, WhatsApp, Slack). Keep `shareLine` to one short sentence so it fits the image. `photoBadge` is the small number card on the corner of your photo.
+- **About section:** open `content/about.ts`. Change the heading, edit or add lines in `paragraphs` (each line is one paragraph), and edit the four number cards in `facts`.
 - **Social links:** find `export const socials`. Change the `href` links, or add another line (the icon appears automatically for GitHub and LinkedIn; other names show a simple arrow).
-- **Your photo (avatar):** replace the file `public/images/avatar.jpg` with a new square photo (at least 200 × 200 pixels), keeping the same name. It appears in the top bar and the hero.
+- **Your photo (avatar):** replace the file `public/images/jatin-portrait.jpg` with a new portrait or square photo (at least 800 pixels wide, ideally under 300 KB). It appears in the hero, on the right side of the page top. Tip: if the old photo still shows after you swap it, give the new file a different name, update `src` under `avatar` in `content/site.ts`, and delete the `.next` folder once. Browsers and Next.js cache images for a long time.
 - **Hero text and section titles** (for example the heading above your projects) are also in this file.
 
 **Where messages from the contact form go:** that is not in this file. It is set by the `CONTACT_TO_EMAIL` setting (see section 8).
@@ -171,21 +174,21 @@ Open `content/theme.ts` and change the color code:
 
 ```ts
 export const theme = {
-  accent: "#34d3c0",
+  accent: "#2563eb",
 };
 ```
 
-Pick any hex code (search "color picker" online). Some ideas that suit a dark site:
+Pick any hex code (search "color picker" online). The site is light, so choose a **medium-dark** color: pale colors (bright teal, lime, yellow) are hard to read on white. Some ideas:
 
 | Color | Code |
 | --- | --- |
-| Teal (current) | `#34d3c0` |
-| Electric blue | `#4da3ff` |
-| Amber | `#f5b544` |
-| Lime | `#a3e635` |
-| Soft violet | `#8b8cf8` |
+| Blue (current, matches your LinkedIn banner) | `#2563eb` |
+| Deeper blue | `#1d4ed8` |
+| Indigo | `#4338ca` |
+| Teal | `#0f766e` |
+| Burgundy | `#9f1239` |
 
-The buttons, glows, highlights and the share image all update automatically.
+The buttons, links, highlights, favicon and the share image all update automatically. The whole site uses one font, Inter, so there is nothing to configure there.
 
 **Page width on big screens (optional).** In the same file, `contentWidth` controls how wide the page content is on laptops and desktops:
 
