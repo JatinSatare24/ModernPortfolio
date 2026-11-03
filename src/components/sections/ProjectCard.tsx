@@ -37,7 +37,7 @@ function PhoneStack({ images }: { images: Project["images"] }) {
         {shots.map((img, i) => (
           <div
             key={img.src}
-            className={`overflow-hidden rounded-[1.1rem] border border-line-strong shadow-2xl shadow-black/60 transition-transform duration-500 ease-out sm:rounded-[1.4rem] ${pose(i, shots.length)}`}
+            className={`overflow-hidden rounded-[1.1rem] border border-line-strong shadow-xl shadow-slate-900/15 transition-transform duration-500 ease-out sm:rounded-[1.4rem] ${pose(i, shots.length)}`}
           >
             <Image
               src={img.src}
@@ -50,6 +50,27 @@ function PhoneStack({ images }: { images: Project["images"] }) {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+// One wide desktop screenshot inside a simple browser frame.
+function BrowserShot({ image }: { image: Project["images"][number] }) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-line-strong bg-surface shadow-xl shadow-slate-900/15">
+      <div className="flex items-center gap-1.5 border-b border-line bg-surface-2 px-4 py-2.5">
+        <span className="size-2.5 rounded-full bg-line-strong" />
+        <span className="size-2.5 rounded-full bg-line-strong" />
+        <span className="size-2.5 rounded-full bg-line-strong" />
+      </div>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={1433}
+        height={814}
+        sizes="(min-width: 1024px) 520px, 100vw"
+        className="h-auto w-full"
+      />
     </div>
   );
 }
@@ -80,18 +101,19 @@ export default function ProjectCard({
 }) {
   if (variant === "featured") {
     const hasImages = project.images.length > 0;
+    const wide = project.imageLayout === "browser";
     return (
-      <SpotlightCard className="rounded-3xl border border-line bg-surface">
+      <SpotlightCard className="rounded-3xl border border-line bg-surface shadow-card">
         <article
           className={`grid gap-8 p-5 sm:gap-10 sm:p-10 lg:gap-14 lg:p-12 ${
             hasImages ? "lg:grid-cols-[1.05fr_0.95fr]" : ""
           }`}
         >
-          <div className="flex flex-col">
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+          <div className={`flex flex-col ${hasImages ? "" : "max-w-3xl"}`}>
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.12em] text-accent">
               Featured · {project.kind}
             </p>
-            <h3 className="font-display text-[2rem] leading-tight tracking-[-0.01em] text-fg sm:text-4xl">
+            <h3 className="font-display text-[2rem] leading-tight  text-fg sm:text-4xl">
               {project.title}
             </h3>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
@@ -118,12 +140,21 @@ export default function ProjectCard({
               ))}
             </ul>
 
-            <div className="mt-8">
-              <Links project={project} />
-            </div>
+            {project.links.length > 0 && (
+              <div className="mt-8">
+                <Links project={project} />
+              </div>
+            )}
           </div>
 
-          {hasImages && <PhoneStack images={project.images} />}
+          {hasImages &&
+            (wide ? (
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <BrowserShot image={project.images[0]} />
+              </div>
+            ) : (
+              <PhoneStack images={project.images} />
+            ))}
         </article>
       </SpotlightCard>
     );
@@ -131,7 +162,7 @@ export default function ProjectCard({
 
   const cover = project.images[0];
   return (
-    <SpotlightCard className="h-full rounded-2xl border border-line bg-surface">
+    <SpotlightCard className="h-full rounded-2xl border border-line bg-surface shadow-card">
       <article className="flex h-full flex-col">
         {cover && (
           <div className="relative aspect-[16/10] overflow-hidden rounded-t-2xl border-b border-line">
@@ -145,7 +176,7 @@ export default function ProjectCard({
           </div>
         )}
         <div className="flex flex-1 flex-col p-6">
-          <p className="mb-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent">
+          <p className="mb-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent">
             {project.kind}
           </p>
           <h3 className="font-display text-2xl text-fg">{project.title}</h3>

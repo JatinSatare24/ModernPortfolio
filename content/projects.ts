@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // PROJECTS. Each project is one block between { and }.
 //
-// - The project marked  featured: true  appears as the large card.
+// - The project marked  featured: true  appears as a large card.
 // - Every project WITHOUT  featured: true  appears automatically in a
 //   "More projects" grid. (The grid stays hidden until you add one.)
 //
@@ -19,12 +19,12 @@ export const projects: Project[] = [
       "A live e-commerce platform I designed, built and shipped on my own, owning the whole stack from data modeling to the deployed UI.",
     featured: true,
     highlights: [
-      "31 reusable components across 14 routes (Next.js, TypeScript, Supabase), owned end to end.",
+      "31 reusable components across 14 routes (Next.js 16, TypeScript, Supabase), owned end to end.",
       "Normalized schema: 6 tables, 5 foreign keys, 12 Row-Level Security policies and a Postgres trigger for automatic profile creation.",
       "Auth with email/password and Google OAuth, SSR-safe session cookies, middleware-protected checkout and role-based admin access.",
       "Admin panel for orders, products and multi-photo galleries. A Supabase Edge Function, triggered by Postgres, emails invoices when a payment is submitted.",
       "AI shop assistant: tool-calling RAG with OpenAI + pgvector, validated model output, Postgres rate limiting and a feature flag.",
-      "Performance: Next.js Image optimization, lazy loading, 400ms debounced search and server components.",
+      "Performance: Next.js 16 Cache Components, Image optimization, lazy loading, 400ms debounced search and server components.",
     ],
     tech: [
       "Next.js",
@@ -51,5 +51,35 @@ export const projects: Project[] = [
       },
     ],
     links: [{ label: "Visit live site", href: "https://resinkalaakaari.in" }],
+  },
+  {
+    slug: "igotaskedthis",
+    title: "IGotAskedThis",
+    kind: "Interview Experience Platform",
+    summary:
+      "A full-stack platform where candidates share structured, multi-round interview experiences, and others learn from them.",
+    featured: true,
+    highlights: [
+      "Built on Next.js 16, TypeScript, Drizzle, Neon Postgres and Clerk, with structured multi-round posts, search, filters, bookmarks, votes and report-based moderation.",
+      "Cached public reads with \"use cache\" and updateTag, and streamed per-user data through Suspense, with Zod-validated server actions.",
+      "Prevented lost votes with atomic SQL counters, added database-backed rate limits, and ran 55 automated checks on the server actions.",
+    ],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Drizzle",
+      "Neon Postgres",
+      "Clerk",
+      "Zod",
+    ],
+    // TODO: add a live or GitHub link in links below.
+    imageLayout: "browser",
+    images: [
+      {
+        src: "/projects/igotaskedthis/home.jpg",
+        alt: "IGotAskedThis home page with the headline Know what you will be asked before you walk in, a search box and an example interview post",
+      },
+    ],
+    links: [],
   },
 ];

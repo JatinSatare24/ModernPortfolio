@@ -22,6 +22,7 @@ export type Project = {
   highlights: string[]; // the key bullet points
   tech: string[]; // technology tags
   images: ProjectImage[]; // screenshots (can be empty)
+  imageLayout?: "phones" | "browser"; // phones = portrait mobile shots (default), browser = one wide desktop screenshot
   links: ProjectLink[]; // buttons on the card
 };
 
