@@ -7,3 +7,4 @@ export { experience, experienceIntro } from "./experience";
 export { skills } from "./skills";
 export { education, certifications } from "./education";
 export type * from "./types";
+export { services } from "./services";

@@ -17,6 +17,7 @@ You should never need to open anything inside the `src` folder.
 | --- | --- |
 | `content/site.ts` | name, email, social links, hero text, section titles, resume file name |
 | `content/about.ts` | the About section: heading, paragraphs and the four number cards |
+| `content/services.ts` | the Services cards (title, plain-English text, icon) and the "Start a project" button label |
 | `content/projects.ts` | all projects |
 | `content/experience.ts` | the experience timeline |
 | `content/skills.ts` | skill groups |
