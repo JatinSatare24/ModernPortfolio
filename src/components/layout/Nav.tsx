@@ -104,7 +104,7 @@ export default function Nav() {
             <a
               href={site.resume.href}
               download={site.resume.downloadName}
-              className="hidden rounded-full border border-line-strong px-4 py-2 text-sm text-fg transition-colors hover:border-accent/60 hover:text-accent sm:inline-block"
+              className="inline-block rounded-full border border-line-strong px-3.5 py-1.5 text-sm text-fg transition-colors hover:border-accent/60 hover:text-accent sm:px-4 sm:py-2"
             >
               Resume
             </a>
@@ -167,13 +167,6 @@ export default function Nav() {
                   </m.li>
                 ))}
               </ul>
-              <a
-                href={site.resume.href}
-                download={site.resume.downloadName}
-                className="mt-8 inline-block rounded-full border border-line-strong px-5 py-3 text-sm text-fg"
-              >
-                Download resume
-              </a>
             </nav>
           </m.div>
         )}

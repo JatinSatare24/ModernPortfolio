@@ -3,7 +3,7 @@ import { site, socials } from "@content/index";
 import Container from "@/components/layout/Container";
 import AnchorLink from "@/components/motion/AnchorLink";
 import { primaryClass, secondaryClass } from "@/components/ui/Buttons";
-import { ArrowDown, Download, Github, Instagram, Linkedin, Mail } from "@/components/ui/Icons";
+import { ArrowDown, Github, Instagram, Linkedin, Mail } from "@/components/ui/Icons";
 
 const socialIcons: Record<string, React.ReactNode> = {
   GitHub: <Github />,
@@ -48,20 +48,14 @@ export default function Hero() {
               className="hero-rise mt-8 flex flex-wrap items-center gap-3 sm:mt-10"
               style={{ "--d": 0.4 } as React.CSSProperties}
             >
-              <AnchorLink to="work" className={primaryClass}>
+              <AnchorLink to="contact" className={primaryClass}>
                 {hero.primaryCta}
                 <ArrowDown />
               </AnchorLink>
-              <a
-                href={site.resume.href}
-                download={site.resume.downloadName}
-                className={secondaryClass}
-              >
+              <AnchorLink to="work" className={secondaryClass}>
                 {hero.secondaryCta}
-                <Download />
-              </a>
-
-              <ul className="ml-2 flex items-center gap-1">
+              </AnchorLink>
+              <ul className="-ml-3 flex items-center gap-1 sm:ml-2">
                 <li>
                   <a
                     href={`mailto:${site.contact.email}`}

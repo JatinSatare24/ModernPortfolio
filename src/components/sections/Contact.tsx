@@ -66,6 +66,9 @@ export default function Contact() {
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
               {contact.intro}
             </p>
+            <p className="mt-3 max-w-md leading-relaxed text-muted">
+              {contact.rolesLine}
+            </p>
 
             <ul className="mt-10 space-y-1">
               <Method

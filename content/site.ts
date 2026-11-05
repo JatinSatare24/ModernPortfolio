@@ -21,12 +21,12 @@ export const site = {
 
   // The public address of the website (used for SEO, sitemap and share previews).
   // Update this if you buy a custom domain.
-  url: "https://jatinsatareportfolio.netlify.app",
+  url: "https://jatinsatare.vercel.app",
 
   // Search-engine / share-preview text
   title: "Jatin Satare | Full-Stack Engineer",
   description:
-    "Full-Stack Engineer with 4 years of production experience. I build fast, reliable, production-ready web apps, from database to UI. Open to full-time roles and freelance projects.",
+    "Full-Stack Engineer who builds fast, reliable websites, online stores and web apps from idea to launch. Open to freelance projects and full-time roles.",
 
   // Resume file. To replace it, overwrite the PDF in public/resume/ (same name).
   resume: {
@@ -44,15 +44,16 @@ export const site = {
       "I build fast, reliable, production-ready web apps, from database to UI.",
     // Small card on the corner of your photo in the hero
     photoBadge: { value: "4 years", label: "Production experience" },
-    primaryCta: "View my work",
-    secondaryCta: "Download resume",
+    primaryCta: "Contact me",
+    secondaryCta: "View my work",
     availability: "Open to full-time roles & freelance projects",
   },
 
   contact: {
-    heading: "Let's build something reliable.",
-    intro:
-      "Hiring for a Full-Stack or Frontend role, or have a project that needs an engineer who owns it end to end? Send me a message and I will get back to you.",
+    heading: "Need a website or app? Let's talk.",
+    intro: "Tell me what you're building and I'll get back to you.",
+    rolesLine:
+      "Hiring for a Full-Stack or Frontend role? I'd love to hear about it.",
     email: "jatinsatare@gmail.com",
   },
 };
@@ -94,6 +95,7 @@ export const moreOnGithub = {
 // Navigation links (id must match the section id on the page).
 export const navItems = [
   { id: "about", label: "About" },
+  { id: "services", label: "Services" },
   { id: "work", label: "Work" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
