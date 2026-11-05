@@ -3,7 +3,6 @@ import { sans } from "@/lib/fonts";
 import { site, socials, theme } from "@content/index";
 import MotionProvider from "@/components/motion/MotionProvider";
 import SmoothScroll from "@/components/layout/SmoothScroll";
-import SkipLink from "@/components/layout/SkipLink";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import CursorGlow from "@/components/motion/CursorGlow";
@@ -81,7 +80,6 @@ export default function RootLayout({
         <SmoothScroll>
           <PageIntro />
           <CursorGlow />
-          <SkipLink />
           <Nav />
           <main id="main">{children}</main>
           <Footer />
