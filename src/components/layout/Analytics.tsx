@@ -6,7 +6,7 @@ import { clarityId } from "@content/index";
 export default function Analytics() {
   if (process.env.NODE_ENV !== "production" || !clarityId) return null;
   return (
-    <Script id="clarity" strategy="afterInteractive">
+    <Script id="ms-clarity-init" strategy="afterInteractive">
       {`(function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
