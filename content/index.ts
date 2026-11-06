@@ -8,3 +8,4 @@ export { skills } from "./skills";
 export { education, certifications } from "./education";
 export type * from "./types";
 export { services } from "./services";
+export { clarityId } from "./analytics";

@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import CursorGlow from "@/components/motion/CursorGlow";
+import Analytics from "@/components/layout/Analytics";
 import PageIntro from "@/components/motion/PageIntro";
 import "./globals.css";
 
@@ -76,6 +77,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
         <MotionProvider>
         <SmoothScroll>
           <PageIntro />
